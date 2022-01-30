@@ -174,7 +174,7 @@ class RunPowerWorkoutView extends WatchUi.DataField {
 
   (:workout)
   function setupValues(strydsensor){
-    hrZones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_GENERIC);
+    hrZones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_RUNNING);
     currentPowerAverage = new[powerAverage];
     sensor = strydsensor;
   }
@@ -182,7 +182,7 @@ class RunPowerWorkoutView extends WatchUi.DataField {
   (:noworkout)
   function setupValues(strydsensor){
 
-    hrZones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_GENERIC);
+    hrZones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_RUNNING);
     currentPowerAverage = new[powerAverage];
     sensor = strydsensor;
     targetZone = Utils.replaceNull(Application.getApp().getProperty("W"), 0);
