@@ -87,6 +87,7 @@ class RunPowerWorkoutView extends WatchUi.DataField {
   hidden var usePercentage;
   hidden var useSpeed;
   hidden var vibrate;
+  hidden var sound;
 
   // [ Width, Center, 1st horizontal line, 2nd horizontal line
   // 3rd Horizontal line, 1st vertical, Second vertical, Radius,
@@ -123,6 +124,8 @@ class RunPowerWorkoutView extends WatchUi.DataField {
         Utils.replaceNull(Application.getApp().getProperty("E"), 3);
     showColors =
         Utils.replaceNull(Application.getApp().getProperty("F"), 1);
+    sound =
+        Utils.replaceNull(Application.getApp().getProperty("J"), true);
     layout =
         Utils.replaceNull(Application.getApp().getProperty("M"), 3);
 
@@ -461,6 +464,14 @@ class RunPowerWorkoutView extends WatchUi.DataField {
                       new Attention.VibeProfile(100, 300)
                     ]);
                   }
+                  if (Attention has :playTone && sound) {
+                    if(currentPower < targetLow) {
+                      Attention.playTone(Attention.TONE_ALERT_LO);
+                    }
+                    else if(currentPower > targetHigh) {
+                      Attention.playTone(Attention.TONE_ALERT_HI);
+                    }
+                  }
                   alertDisplayed = true;
                   inAlert = true;
                   alertTimer = timer;
@@ -744,6 +755,14 @@ class RunPowerWorkoutView extends WatchUi.DataField {
                       new Attention.VibeProfile(0, 50),
                       new Attention.VibeProfile(100, 300)
                     ]);
+                  }
+                  if (Attention has :playTone && sound) {
+                    if(currentPower < targetLow) {
+                      Attention.playTone(Attention.TONE_ALERT_LO);
+                    }
+                    else if(currentPower > targetHigh) {
+                      Attention.playTone(Attention.TONE_ALERT_HI);
+                    }
                   }
 
                   WatchUi.DataField.showAlert(new RunPowerWorkoutAlertView(
