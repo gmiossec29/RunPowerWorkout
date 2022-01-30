@@ -100,7 +100,7 @@ class RunPowerWorkoutView extends WatchUi.DataField {
   (:roundtwo) const geometry =
       [ 260, 130, 91, 146, 201, 83, 192, 115, 124, 106, 37, 55, 45, 138 ];
   (:roundthree) const geometry =
-      [ 280, 140, 98, 157, 216, 90, 207, 125, 134, 116, 42, 59, 50, 149 ];
+      [ 280, 140, 98, 157, 216, 90, 186, 125, 134, 116, 42, 59, 50, 149 ];
   (:roundfour) const geometry =
       [ 390, 195, 140, 220, 300, 125, 289, 180, 189, 171, 45, 80, 55, 207 ];
   (:roundfive) const geometry =
